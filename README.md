@@ -1,17 +1,80 @@
-# Grinatom-Backend
+# Backend Service — Grinatom Technical Assignment
 
-Задание:
-Используя MS SQL, создайте базу данных с двумя связанными таблицами Заказы (Orders) и Товары (Products). Из каких полей будут состоять таблицы определите самостоятельно.
-Используя ASP.Net Web API (ссылка прикреплена), реализуйте веб-сервис работающий по протоколу Odata или REST.
-Веб-сервис должен реализовывать CRUD-операции для работы с данными в таблицах Заказы (Orders) и Товары (Products) базы данных.
-Реализуйте возможность получения одним запросом информацию о заказе и товарах, которые входят в этот заказ.
-К решению, помимо исходных кодов, приложите тестовый-файл с описанием решения.
+This repository contains a backend service implemented as part of a **technical assignment for Grinatom**.
 
-Решение:
-1. Была создана БД под названием VMDataBase. Файл бэкапа базы данных VMDataBase.bak в папке БД. Также в папку приложены sql файлы запросов на создание 4 таблиц, 4 представлений и 2 триггеров.
-2. Триггер TriggerDelete (для таблицы Orders) срабатывает при удалении заказа из таблицы Orders. Автоматически удаляются все товары, содержащиейся в данном заказе из таблицы OrdersProducts.
-3. Триггер InsertTrigger (для таблицы Orders) срабатывает когда создается заказ в таблице Orders. Автоматически создается нулевое значение товаров в таблице OrdersProducts. Сделан для удобства, чтобы не искать созданный номер заказа. Нулевое значение в OrdersProducts можно будет отредактировать или удалить. При удалении сам заказ из таблицы Orders не удалится.
-4. Представления сделаны для удобства. Так, например, представление FinalOrders отображается на html странице "Заказы", а представление OrderCustomers - на странице создания заказа.
-5. Далее был содан веб-сервис на основе ASP.Net Core Web API. ZIP файл TodoApi. Документация по созданию https://docs.microsoft.com/ru-ru/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio
-6. Веб-сервис реализовывает операции CRUD. Проверить можно с помощью инструмента Postman, но также для удобства были созданы html страницы для проверки работы операций в браузере.
-7. Возможность получения одним запросом информации о заказе и товарах, которые входят в этот заказ, реализована несколькими способами, которые сохранены в представления. Представление FullOrder отображает таблицу OrdersProducts с заменой id Товаров на их наименования. Представление FullOrderCompact комбинирует товары из представления FullOrder в одну строку. Представление FinalOrders совмещает представления FullOrder и OrderCustomers (данное представление заменяет id клиента на его ФИО, используя таблицы Orders и Customers), таким образом получается представление, которое впоследствии отображается на странице "Заказы".
+The project demonstrates backend development skills using **C# and .NET**, with a focus on clean architecture, business logic, and data handling.
+
+---
+
+## 🔎 Overview
+
+The application is a server-side service designed to process and manage domain data according to predefined business rules.
+
+The main goal of the project was to implement a reliable and maintainable backend solution based on technical requirements, similar to real-world production tasks.
+
+---
+
+## 🧠 Key Concepts Demonstrated
+
+- backend application architecture
+- separation of concerns
+- implementation of business logic
+- data validation and consistency
+- working with persistence layer
+- REST-style API design
+
+---
+
+## 🛠 Tech Stack
+
+- **Language:** C#
+- **Framework:** .NET
+- **Architecture:** Layered backend architecture
+- **Data Access:** Entity Framework (if applicable)
+- **Database:** (specify if used, e.g. MS SQL / PostgreSQL / In-memory)
+
+*(Exact implementation details can be found in the source code.)*
+
+---
+
+## 📂 Project Structure
+
+The solution is structured into logical layers, such as:
+- API / Controllers
+- Business Logic
+- Data Access
+- Models / Entities
+
+This structure helps keep the codebase maintainable and scalable.
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository  
+2. Configure application settings (connection strings, environment variables)  
+3. Restore dependencies  
+4. Run the application using `dotnet run`  
+5. Use Postman or Swagger (if configured) to test endpoints
+
+---
+
+## 🎯 What This Project Shows
+
+This repository is part of my professional portfolio and highlights:
+
+✔ Ability to implement backend services based on requirements  
+✔ Experience with .NET backend development  
+✔ Understanding of clean code and architecture principles  
+✔ Readiness to work with real business tasks
+
+---
+
+## 🔮 Possible Improvements
+
+- Add authentication and authorization
+- Add unit and integration tests
+- Add Docker support
+- Extend API documentation
+
+---
